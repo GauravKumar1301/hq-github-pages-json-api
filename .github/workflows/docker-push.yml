@@ -1,0 +1,19 @@
+﻿name: Push to Docker Hub
+on: [workflow_dispatch]
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: gaurav1301
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: gaurav1301/ga2-docker-hub-image:24f1000124
