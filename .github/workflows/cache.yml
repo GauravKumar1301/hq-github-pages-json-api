@@ -1,0 +1,15 @@
+﻿name: GitHub Action Cache
+on: [push, workflow_dispatch]
+jobs:
+  cache-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache
+          key: cache-4d0a528
+      - name: prime-cache-4d0a528
+        run: echo "Cache primed with key cache-4d0a528"
