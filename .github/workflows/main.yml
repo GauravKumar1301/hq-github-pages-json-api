@@ -1,11 +1,13 @@
-﻿name: GitHub Action Cache
+﻿name: Consolidated Exam Workflow
 on: [push, workflow_dispatch]
 jobs:
-  cache-job:
+  exam-job:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+      - name: 24f1000124@ds.study.iitm.ac.in
+        run: echo "Verifying email step"
       - name: Cache dependencies
         uses: actions/cache@v4
         with:
