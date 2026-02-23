@@ -1,0 +1,22 @@
+name: Daily Update
+
+on:
+  schedule:
+    - cron: '30 6 * * *'
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Step for kalaniyagaurav@gmail.com
+        run: |
+          date >> pulse.txt
+          git config --global user.name "Gaurav Kumar"
+          git config --global user.email "kalaniyagaurav@gmail.com"
+          git add pulse.txt
+          git commit -m "Daily update for kalaniyagaurav@gmail.com"
+          git push
